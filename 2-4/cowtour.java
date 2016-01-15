@@ -116,9 +116,9 @@ class cowtour {
             for(int i = 0; i < pastures; i++){
                 for( int j = 0; j < pastures; j++){
                     double newWeight = distances[i][k] + distances[k][j];
-                        //(distances[i][k] == Double.MAX_VALUE) ||
-                        //(distances[k][j] == Double.MAX_VALUE) ? 
-                        //Double.MAX_VALUE : distances[i][k] + distances[k][j];
+                    //we don't get overflow here, when you add
+                    //something to Double.MAX_VALUE, it remains
+                    //the same. This is different from Integer.MAX_VALUE!
                     if(newWeight < distances[i][j] && i != j){
                         distances[i][j] = newWeight;
                     }
